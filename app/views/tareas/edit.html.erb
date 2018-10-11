@@ -7,10 +7,10 @@
 	<%end%>
 </ul>
 
+<h2>Editar tarea</h2>
 
-<h2>Crear tarea</h2>
-
-<%= form_for(@tarea) do |f| %>
+<%= form_for(@tarea, url: {controller: "tareas", action: "update"}, html: {
+    method: "put"}) do |f| %>
 	<div class="form-group">
 		<%= f.label :titulo, "Titulo" %>
 		<%= f.text_field :titulo, class: "form-control", required: true %>
@@ -19,5 +19,5 @@
 		<%= f.label :descripcion, "Descripción"%>
 		<%= f.text_area :descripcion, class: "form-control", required: true %>
 	</div>
-	<%= f.submit "Crear", class: "btn btn-success"%>
+	<%= f.submit "Editar", class: "btn btn-warning" %>
 <%end%>

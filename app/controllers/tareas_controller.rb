@@ -18,15 +18,35 @@ class TareasController < ApplicationController
 		@tarea = Tarea.new(
 			titulo: params[:tarea][:titulo], 
 			descripcion: params[:tarea][:descripcion])
-		@tarea.save						
-		#insert into tareas(titulo,descripcion) values('','')
-		redirect_to controller: "tareas", action: "show", id: @tarea.id
+		if @tarea.save						
+			#insert into tareas(titulo,descripcion) values('','')
+			redirect_to controller: "tareas", action: "show", id: @tarea.id
+		else
+			render "new"
+		end
 	end
 
 	def edit
+		@tarea = Tarea.find(params[:id])
+	end
+
+	def update
+		@tarea = Tarea.find(params[:id])
+		if @tarea.update(
+				titulo: params[:tarea][:titulo], 
+				descripcion: params[:tarea][:descripcion])
+			redirect_to controller: "tareas", action: "show"
+		else
+			render "edit"
+		end
+
 	end
 
 	def destroy
+		@tarea = Tarea.find(params[:id])
+		@tarea.destroy
+		redirect_to controller: "tareas",
+		action: "index"
 	end
 
 end
