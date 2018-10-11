@@ -16,13 +16,13 @@
           <ul class="navbar-nav">
             <li class="nav-item active">
               <!--<a class="nav-link" href="#">Inicio</a>-->
-              <%= link_to "Inicio", {controller: "welcome", action: "index"}, class: "nav-link" %>
+              <%= link_to "Inicio", welcome_index_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Tareas", {controller: "tareas", action: "index"}, class: "nav-link" %>
+              <%= link_to "Tareas", tareas_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Crear tarea", {controller: "tareas", action: "new"}, class: "nav-link"%>
+              <%= link_to "Crear tarea", new_tarea_path, class: "nav-link"%>
             </li>
           </ul>
         </div>

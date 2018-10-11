@@ -9,10 +9,10 @@
 	<tbody>
 	<% @tareas.each do |tarea| %>
 		<tr>
-			<td><%= link_to tarea.titulo, {controller: "tareas", action: "show", id: tarea.id} %></td>
-			<td><%= link_to "Editar", {controller: "tareas", action: "edit", id: tarea.id}, class: "btn btn-warning"%></td>
+			<td><%= link_to tarea.titulo, tarea %></td>
+			<td><%= link_to "Editar", edit_tarea_path(tarea), class: "btn btn-warning"%></td>
 			<td>
-				<%= link_to "Eliminar", {controller: "tareas", action: "destroy", id: tarea.id}, 
+				<%= link_to "Eliminar", tarea, 
 										method: "delete", class: "btn btn-danger",
 										data:{confirm:"Esta seguro de elimiar esta tarea?"}%>
 			</td>						
