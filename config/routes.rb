@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+ 
+  devise_for :usuarios
+  # get 'usuarios/sign_in'
+  # get 'usuarios/sign_up'
+
   # Rutas para manipular un recurso (CRUD)
   get 'welcome/index'
 

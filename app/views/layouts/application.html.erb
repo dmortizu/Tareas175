@@ -24,9 +24,33 @@
             <li class="nav-item">
               <%= link_to "Crear tarea", new_tarea_path, class: "nav-link"%>
             </li>
+
+            <% if usuario_signed_in? %>
+            <!--botones de session-->
+            <li class="nav-item">
+              <%= link_to "Cerrar sesión",
+              destroy_usuario_session_path,
+              method:"delete", class: "nav-link" %>
+            <li/>
+
+            <%else%>
+            <li class="nav-item">
+                <%= link_to "Iniciar Sesión",
+                new_usuario_session_path, class: "nav-link" %>
+            </li>
+
+            <li class="nav-item">
+                <%= link_to "Crear Cuenta",
+                new_usuario_registration_path, class: "nav-link" %>
+            </li>
+            <%end%>
+
           </ul>
         </div>
       </nav>
+      <!--Flash-->
+      <p> <%= notice %></p>
+      <p> <%= alert %></p>
       <%= yield %>
     </div>
   </body>
