@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
  
+  resources :comentarios
   devise_for :usuarios
   # get 'usuarios/sign_in'
   # get 'usuarios/sign_up'
+  resources :tareas do
+    resources :comentarios
+  end
 
   # Rutas para manipular un recurso (CRUD)
   get 'welcome/index'

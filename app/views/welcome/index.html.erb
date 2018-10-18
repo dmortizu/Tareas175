@@ -1,9 +1,10 @@
+<% if usuario_signed_in? %>
+<h1>Bienvenidos <%= current_usuario.email%>
+</h1>
+<% else %>
+
 <h1>Bienvenidos </h1>
 <p>Este es mi sitio Web</p>
-
-<% frutas = ['Uva','fresa', 'Banano'] %>
-<ul>
-<% frutas.each do |fruta| %>
-	<li><%=fruta%></li>
 <% end %>
-</ul>
+
+

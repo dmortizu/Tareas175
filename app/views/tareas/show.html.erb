@@ -1,2 +1,9 @@
 <h2><%= @tarea.titulo %></h2>
 <p><%= @tarea.descripcion %></p>
+<% unless @tarea.usuario.nil? %>
+    <p> Escrito por: <%= @tarea.usuario.email %></p>
+<% end %>
+
+<h2>Agregar comentario</h2>
+
+<%= render "comentarios/form" %>

@@ -1,0 +1,22 @@
+<%= form_for([@tarea,@comentario]) do |form| %>
+  <% if @comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+
+      <ul>
+      <% @comentario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :contenido %>
+    <%= form.text_area :contenido, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Comentar", class: "btn btn-info" %>
+  </div>
+<% end %>
